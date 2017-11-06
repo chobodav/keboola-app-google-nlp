@@ -1,0 +1,29 @@
+{
+  "name": "keboola-app-google-nlp",
+  "version": "1.0.0",
+  "description": "A simple apps that connects Google NLP with Keboola Connection",
+  "main": "index.js",
+  "scripts": {
+    "test": "standard",
+    "start": "node index.js"
+  },
+  "keywords": [
+    "Google",
+    "NLP",
+    "Keboola"
+  ],
+  "author": "Radek Tomasek <radek.tomasek@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "fast-csv": "^2.4.1",
+    "google-nlp": "^0.5.6",
+    "is-there": "^4.4.3",
+    "json2csv": "^3.11.5",
+    "jsonfile": "^4.0.0",
+    "lodash": "^4.17.4",
+    "nconf": "^0.9.1"
+  },
+  "devDependencies": {
+    "standard": "^10.0.3"
+  }
+}
