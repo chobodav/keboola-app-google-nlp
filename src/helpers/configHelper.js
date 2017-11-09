@@ -35,7 +35,7 @@ function getConfig (configPath, fileExist = isThere) {
  * @throws {error}
  * @returns {Object}
  */
-function parseConfiguration (configObject) {
+function parseConfiguration (configObject = {}) {
   try {
     const apiKey = configObject.get('parameters:#apiKey')
     if (_.isUndefined(apiKey) || _.isEmpty(apiKey)) {
