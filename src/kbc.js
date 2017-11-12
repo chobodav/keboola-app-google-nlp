@@ -15,7 +15,6 @@ const { generateCsvFiles, generateManifests, getTextFromCsvFile } = require('./h
  * @returns {undefined}
  */
 module.exports = async (dataDir) => {
-  console.log('dataDir: ', dataDir)
   const configFile = path.join(dataDir, constants.CONFIG_FILE)
   const inputFilesDir = path.join(dataDir, constants.INPUT_FILES_DIR)
   const outputFilesDir = path.join(dataDir, constants.OUTPUT_FILES_DIR)
@@ -32,12 +31,19 @@ module.exports = async (dataDir) => {
 
     const nlp = new NLP(config.apiKey)
     const annotations = await nlp.annotateText(textToAnalyse, config.features)
+    if (annotations && annotations.error) {
+      let { message } = annotations.error
+      if (!message) {
+        message = 'An unknown problem with the Google NLP API. Please try it again later!'
+      }
+      throw new Error(message)
+    }
     await generateCsvFiles(outputFilesDir, annotations)
     await generateManifests(outputFilesDir)
     console.log('Process of text analysis is completed!')
     process.exit(constants.EXIT_STATUS_SUCCESS)
   } catch (error) {
-    console.error(error)
+    console.error(error.message ? error.message : error)
     process.exit(constants.EXIT_STATUS_FAILURE)
   }
 }

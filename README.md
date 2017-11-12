@@ -65,11 +65,11 @@ Enable entities analysis. You don't need to specify this field. The value is set
 
 You can see in following JSON how the configuration might look like. For now there is just following structure.
 
-    "parameters": {
+    {
         "#apiKey": "generated google api key",
         "customText": "abcdefg",
         "syntaxAnalysis": false,
         "entitiesAnalysis": false,
         "sentimentAnalysis": false,
         "analyseCustomText": false
-      }
+    }

@@ -89,6 +89,6 @@ function parseConfiguration (configObject = {}) {
       analyseCustomText
     }
   } catch (error) {
-    throw new Error(`Problem in the input configuration - ${error.name} - ${error.message}`)
+    throw new Error(`Problem in the input configuration - ${error.message}`)
   }
 }
